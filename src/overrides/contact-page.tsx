@@ -2,7 +2,7 @@
 
 import { useState, type FormEvent } from 'react'
 import Link from 'next/link'
-import { Mail, MapPin, Phone, Send, Clock, MessageCircle, Sparkles, CheckCircle2, ArrowRight } from 'lucide-react'
+import { Send, Clock, Sparkles, CheckCircle2, ArrowRight } from 'lucide-react'
 import { NavbarShell } from '@/components/shared/navbar-shell'
 import { Footer } from '@/components/shared/footer'
 import { SITE_CONFIG } from '@/lib/site-config'
@@ -19,35 +19,6 @@ const reasons = [
 export function ContactPageOverride() {
   const [submitted, setSubmitted] = useState(false)
   const contactEmail = process.env.NEXT_PUBLIC_CONTACT_EMAIL?.trim() || `hello@${SITE_CONFIG.domain}`
-
-  const contactChannels = [
-    {
-      icon: Phone,
-      title: 'Call Us',
-      primary: '+1 (555) 123-4567',
-      secondary: 'Mon-Fri, 9am-6pm EST',
-    },
-    {
-      icon: Mail,
-      title: 'Email Us',
-      primary: contactEmail,
-      secondary: 'We reply within 24 hours',
-      href: `mailto:${contactEmail}`,
-      ctaLabel: 'Email now',
-    },
-    {
-      icon: MapPin,
-      title: 'Visit Us',
-      primary: '123 Listing Avenue',
-      secondary: 'Premium District, Suite 400',
-    },
-    {
-      icon: MessageCircle,
-      title: 'Live Chat',
-      primary: 'Available 24/7',
-      secondary: 'Real humans, real answers',
-    },
-  ]
 
   function handleSubmit(e: FormEvent) {
     e.preventDefault()
@@ -78,32 +49,6 @@ export function ContactPageOverride() {
         </section>
 
         <section className="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:px-8">
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-            {contactChannels.map((c) => (
-              <div
-                key={c.title}
-                className="group rounded-2xl border border-[#e6d5c2] bg-white p-6 transition-all hover:-translate-y-1 hover:shadow-xl"
-              >
-                <div className="flex h-12 w-12 items-center justify-center rounded-full bg-gradient-to-br from-[#fbf3e8] to-[#e6c9a8] text-[#8b6240] transition-colors group-hover:from-[#b88a5e] group-hover:to-[#8b6240] group-hover:text-white">
-                  <c.icon className="h-5 w-5" />
-                </div>
-                <h3 className="mt-5 font-serif text-lg font-semibold text-[#3d2a1c]">{c.title}</h3>
-                <p className="mt-2 text-sm font-medium text-[#8b6240]">{c.primary}</p>
-                <p className="mt-1 text-xs text-[#a08161]">{c.secondary}</p>
-                {c.href ? (
-                  <a
-                    href={c.href}
-                    className="mt-4 inline-flex items-center justify-center rounded-full bg-gradient-to-r from-[#b88a5e] to-[#8b6240] px-4 py-2 text-xs font-semibold text-white transition-transform hover:scale-[1.02]"
-                  >
-                    {c.ctaLabel}
-                  </a>
-                ) : null}
-              </div>
-            ))}
-          </div>
-        </section>
-
-        <section className="mx-auto max-w-6xl px-4 pb-16 sm:px-6 lg:px-8">
           <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
             <div className="rounded-3xl bg-gradient-to-br from-[#8b6240] to-[#b88a5e] p-8 text-white sm:p-10">
               <p className="text-xs font-medium uppercase tracking-[0.24em] text-[#f5d9b8]">Get in touch</p>
