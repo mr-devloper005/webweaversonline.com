@@ -29,8 +29,6 @@ const navLinks = [
     href: '/about',
     children: [
       { label: 'Our Story', href: '/about' },
-      { label: 'The Team', href: '/team' },
-      { label: 'Careers', href: '/careers' },
     ],
   },
   {
@@ -40,14 +38,6 @@ const navLinks = [
       { label: 'All Listings', href: '/listings' },
       { label: 'Search Services', href: '/search' },
       { label: 'Help Center', href: '/help' },
-    ],
-  },
-  {
-    label: 'Portfolio',
-    href: '/listings',
-    children: [
-      { label: 'Latest Projects', href: '/listings' },
-      { label: 'Press Coverage', href: '/press' },
     ],
   },
 ]
@@ -63,7 +53,7 @@ export function NavbarOverride() {
     <header className="sticky top-0 z-50 w-full border-b border-[#e6d5c2] bg-[#fdf8f1]/95 text-[#3d2a1c] backdrop-blur-xl">
       <nav className="mx-auto flex h-20 max-w-7xl items-center justify-between gap-4 px-4 sm:px-6 lg:px-8">
         <Link href="/" className="flex items-center gap-3">
-          <div className="flex h-14 w-14 items-center justify-center overflow-hidden rounded-full border border-[#d4b896] bg-white shadow-sm">
+          <div className="flex h-14 w-14 items-center justify-center overflow-hidden rounded-full">
             <img src="/favicon.png?v=20260401" alt={`${SITE_CONFIG.name} logo`} className="h-[140%] w-[140%] object-contain" />
           </div>
           <div className="hidden sm:block">
